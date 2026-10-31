@@ -2,7 +2,7 @@
 from fastapi import FastAPI, Response
 import os, socket
 
-VERSAO = "1.0"
+VERSAO = "1.1"
 
 app = FastAPI(title="FIAP Store API", version=VERSAO)
 PRONTO = True
