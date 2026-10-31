@@ -20,3 +20,8 @@ def test_versao():
     r = cliente.get("/versao")
     assert r.status_code == 200
     assert "versao" in r.json()
+
+def test_categorias():
+    r = cliente.get("/categorias")
+    assert r.status_code == 200
+    assert len(r.json()) == 2

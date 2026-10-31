@@ -31,3 +31,7 @@ def info():
 @app.get("/versao")
 def versao():
     return {"versao": VERSAO, "pod": socket.gethostname()}
+
+@app.get("/categorias")
+def categorias():
+    return [{"id": 1, "nome": "Perifericos"}, {"id": 2, "nome": "Monitores"}]
