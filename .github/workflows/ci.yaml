@@ -45,6 +45,7 @@ jobs:
             echo "valor=${GITHUB_RUN_NUMBER}" >> "$GITHUB_OUTPUT"
           fi
 
+      - uses: docker/setup-qemu-action@v4.4.0   # emula arm64 no runner amd64
       - uses: docker/setup-buildx-action@v4.4.1
 
       - name: Build (local, ainda sem push)
@@ -76,6 +77,7 @@ jobs:
         with:
           context: .
           push: true
+          platforms: linux/amd64,linux/arm64   # arm64: Macs Apple Silicon / Graviton
           tags: ${{ env.IMAGEM }}:${{ steps.tag.outputs.valor }}
           labels: org.opencontainers.image.source=https://github.com/${{ github.repository }}
 
